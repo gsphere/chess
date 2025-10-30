@@ -1,4 +1,5 @@
 import re
+import unittest
 
 from chess_main import *
 
@@ -35,9 +36,11 @@ class TestNotationRE(unittest.TestCase):
         for test in TestNotationRE.valid_moves:
             match = re.search(pattern, test, re.IGNORECASE)
             self.assertTrue(match)
+            print(test, " is valid")
 
 
     def test_invalid(self):
         for test in TestNotationRE.invalid_moves:
             match = re.search(pattern, test, re.IGNORECASE)
             self.assertFalse(match)
+            print(test, " is invalid")
